@@ -1,6 +1,6 @@
 /* Intervention TIIN — fonctionnement hors connexion.
    Ne pas modifier CACHE à la main : lancer « python tools/version.py » avant chaque publication. */
-const CACHE='intervention-tiin-8169c6d310';
+const CACHE='intervention-tiin-950c1d3354';
 const ASSETS=['./','./index.html','./style.css','./icon.svg','./manifest.webmanifest',
  './assets/fonts/lexend.css','./assets/fonts/lexend-0.ttf','./assets/fonts/lexend-1.ttf','./assets/fonts/lexend-2.ttf','./assets/fonts/lexend-3.ttf','./assets/fonts/lexend-4.ttf',
  './assets/logo-tocqueville.png','./assets/logo-bac-pro-tiin.svg',

@@ -15,7 +15,7 @@ Règle de l'application : **aucune valeur réglementaire, aucun seuil, aucun cod
 | Sas intermédiaire souvent utilisé pour le déshabillage en tenue étanche ventilée (TEV) | Enseignant [E] |
 | Équipements d'un sas : contaminamètre en sortie, balise aérosols (contamination de l'air du sas), surveillance de l'irradiation, poubelles à différents endroits | Enseignant [E] ; balises mobiles de chantier (aérosols, gamma…) : EDF [3] ; contrôle de non-contamination obligatoire à chaque sortie de zone : CEA [5] |
 | Risque de contamination alpha : deux filtres THE en série | Enseignant [E] |
-| Filtres du confinement dynamique souvent appelés « BSS » sur les chantiers | Enseignant [E] |
+| « BSS » : nom de chantier du **caisson filtrant** raccordé à l'extraction (pas du filtre seul, ni du groupe déprimogène, qui assure l'aspiration) ; développement du sigle non établi, donc jamais affiché | Enseignant [E] ; synthèse [8] citant le catalogue Camfil ; caissons de filtration « à sas » Camfil aussi présents dans le sujet [9] |
 | Deux niveaux de confinement : statique (enceinte) et dynamique (ventilation) | IRSN [1], INRS [2] |
 | Cascade de dépressions : l'air va des zones les moins contaminées vers les plus contaminées | IRSN [1], INRS [2] |
 | Filtration très haute efficacité (THE) avant tout rejet | IRSN [1] |
@@ -46,6 +46,8 @@ Règle de l'application : **aucune valeur réglementaire, aucun seuil, aucun cod
 5. CEA, posters de l'exposition INFODEM (démantèlement), conception CEA 2006. Accès en zone contrôlée par un sas, habillage et déshabillage, contrôle de non-contamination à chaque sortie de zone, protections contre la contamination (tenue de zone, masque et combinaison, tenue ventilée), frottis, cartographie.
 6. CEA, dossier de presse *De l'assainissement-démantèlement des anciennes installations nucléaires au pôle de valorisation des sites industriels*, voyage de presse du 1er avril 2015. Mesure et cartographie radiologiques, décontamination.
 7. IRSN (H. Desjonquères), *Spécification technique CTHEN 14-07 : caisson pour filtres THE pouvant équiper le dernier niveau de filtration des installations nucléaires*, rapport PSN-RES/SCA/2014-59, indice 1, 2014.
+8. *BSS – Caisson filtrant pour sas radiologique*, fiche de synthèse documentaire fournie par l'enseignant (2 p.), citant la documentation Camfil « Caisson filtre ou caisson BSS » et des inventaires de déchets Andra. Synthèse non vérifiée directement sur le catalogue Camfil : utilisée seulement pour l'appellation.
+9. Baccalauréat professionnel Environnement nucléaire, épreuve E2 « Analyser et préparer un chantier en environnement nucléaire », session 2014, dossier ressources (caissons de filtration à sas Camfil, filtre DNF). https://bnseep.eduscol.education.fr/ressources/examens/sujets/14/400/3430200/E2/U2_SUJET_R.pdf
 
 ## Rubriques à venir : sources disponibles
 

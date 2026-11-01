@@ -13,11 +13,11 @@ function svg(marq){
     <rect class="gaine-rect" x="20" y="172" width="112" height="56"/>
     <text class="t-petit" x="76" y="160" text-anchor="middle">depuis le sas</text><text class="t-petit" x="76" y="250" text-anchor="middle">de travail</text>
     <rect class="piece" x="130" y="92" width="482" height="216" rx="8"/>
-    <text class="t-zone" x="476" y="332" text-anchor="middle">Caisson de filtration à sas étanche</text>
+    <text class="t-zone" x="476" y="332" text-anchor="middle">Caisson de filtration (« BSS »)</text>
     <rect class="gaine-rect" x="610" y="172" width="112" height="56"/>
     <rect class="fond trait" x="720" y="146" width="62" height="108" rx="6"/>
     <circle class="trait" cx="751" cy="200" r="15"/><path class="trait fin" d="M751 185 L756 200 L751 215 M736 200 L751 195 L766 200"/>
-    <text class="t-moyen" x="751" y="272" text-anchor="middle">Extracteur</text>
+    <text class="t-moyen" x="751" y="272" text-anchor="middle">Extracteur</text><text class="t-petit" x="751" y="287" text-anchor="middle">groupe</text><text class="t-petit" x="751" y="300" text-anchor="middle">déprimogène</text>
     <path class="trait" d="M751 146 V48"/><path class="trait" d="M743 58 L751 46 L759 58"/>
     <text class="t-petit" x="740" y="40" text-anchor="end">rejet</text>
     <path class="air" d="M28 200 H720"/>
@@ -56,8 +56,8 @@ function svg(marq){
 }
 const ETAPES=[
   {court:"Le dernier niveau de filtration",titre:"Le dernier niveau de filtration",voir:["base","dnf"],m:[150,120],
-   texte:"L’air aspiré dans le sas de travail traverse un caisson de filtration avant d’atteindre l’extracteur et le rejet. C’est le dernier niveau de filtration : le dernier dispositif qui arrête les aérosols avant tout rejet dans l’environnement.",
-   observe:"tout l’air rejeté passe à travers le caisson, sans autre chemin."},
+   texte:"L’air aspiré dans le sas de travail traverse un caisson de filtration avant d’atteindre l’extracteur et le rejet. Sur les chantiers, ce caisson est souvent appelé « caisson BSS » ou « BSS ». C’est le dernier niveau de filtration : le dernier dispositif qui arrête les aérosols avant tout rejet dans l’environnement.",
+   observe:"deux fonctions distinctes : le BSS filtre l’air, l’extracteur (groupe déprimogène) l’aspire."},
   {court:"Le préfiltre protège le THE",titre:"Le préfiltre protège le THE",voir:["prefiltre"],m:[199,330],
    texte:"Placé en amont, le préfiltre piège les plus grosses particules. Il évite que le filtre THE se colmate trop vite.",
    observe:"les grosses particules s’arrêtent sur le préfiltre."},

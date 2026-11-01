@@ -16,7 +16,7 @@ const ETAPES=[
    texte:"La pression baisse de la zone propre vers le sas de travail : P₀ > P₁ > P₂ > P₃. Par une porte ouverte ou une fuite, l’air va toujours vers le plus contaminé, jamais l’inverse.",
    observe:"suis les flèches : aucune ne revient vers la zone propre."},
   {court:"La filtration THE",titre:"La filtration très haute efficacité",voir:["the","air-rejet"],m:[680,320],
-   texte:"Avant d’être rejeté, l’air aspiré traverse un filtre à très haute efficacité (THE) : les aérosols contaminés y restent piégés. Sur les chantiers, ces filtres du confinement dynamique sont souvent appelés « BSS ».",
+   texte:"Avant d’être rejeté, l’air aspiré traverse un filtre à très haute efficacité (THE) : les aérosols contaminés y restent piégés. Sur les chantiers, le caisson qui contient ces filtres est souvent appelé « caisson BSS » ou simplement « BSS ».",
    observe:"le filtre est placé avant le rejet, jamais après.",
    texteOption:"Risque de contamination alpha : on monte deux filtres THE en série. Si le premier laisse passer des particules, le second les arrête.",
    observeOption:"deux filtres THE l’un derrière l’autre avant le rejet."},
