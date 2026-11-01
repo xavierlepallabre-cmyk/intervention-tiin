@@ -17,11 +17,11 @@ const ETAPES=[
    texte:"Pour sortir, on revient par le sas intermédiaire, puis on passe dans le quatrième sas : le sas de sortie, qui débouche sur la zone propre.",
    observe:"on ne ressort jamais par le sas d’entrée."},
   {court:"Le parcours et les sauts de zone",titre:"Le parcours et les sauts de zone",voir:["parcours-entree","parcours-sortie","sauts"],m:[640,380],
-   texte:"À l’aller (en bleu), on va de la zone propre jusqu’à la nappe. Au retour (en orange), chaque changement de zone est un saut de zone : sortir de la nappe, entrer dans le sas intermédiaire, entrer dans le sas de sortie, rejoindre la zone propre.",
-   observe:"compte les sauts de zone sur le trajet orange."},
+   texte:"À l’aller (en bleu), on va de la zone propre jusqu’à la nappe. Au retour (en orange), chaque changement de zone est un saut de zone : sortir de la nappe, entrer dans le sas intermédiaire, entrer dans le sas de sortie, rejoindre la zone propre. À chaque saut, on retire les équipements de protection portés dans la zone plus contaminée et on les laisse sur place : la contamination ne suit pas la personne.",
+   observe:"compte les sauts de zone sur le trajet orange : quatre."},
   {court:"La surveillance et les déchets",titre:"La surveillance et les déchets",voir:["contam","aerosol","irradiation","poubelles"],m:[565,128],
-   texte:"Un sas complet comporte aussi : un contaminamètre en sortie, pour se contrôler avant la zone propre ; une balise aérosols, qui surveille la contamination de l’air à l’intérieur du sas ; une surveillance de l’irradiation ; des poubelles à différents endroits.",
-   observe:"repère les trois poubelles le long du trajet de sortie."}
+   texte:"Un sas complet comporte aussi : un contaminamètre en sortie, pour contrôler la personne, sa tenue et le matériel avant la zone propre ; une balise aérosols, qui surveille la contamination de l’air à l’intérieur du sas ; une surveillance de l’irradiation ; des poubelles près des sauts de zone, pour collecter les équipements retirés en sortie.",
+   observe:"chaque poubelle est placée sur le trajet de sortie, juste après un saut de zone."}
 ];
 function ouvrir(main){
   return window.ITSasDessin.guide(main,{

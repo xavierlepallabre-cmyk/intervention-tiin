@@ -1,7 +1,7 @@
 /* Intervention TIIN — Sas : lecture guidée du confinement dynamique, sur le sas complet.
    Principes : confinement statique (enceinte) + confinement dynamique (cascade de dépressions, air du
    moins contaminé vers le plus contaminé, filtration THE avant rejet, deux THE en série si risque alpha).
-   Sources : SOURCES.md. Aucune valeur de dépression n'est donnée : elle relève des consignes du site. */
+   Sources : SOURCES.md. Critères de contrôle : CEA, monographie Assainissement-démantèlement (2017), valeurs données à titre d'exemple ; les consignes du site priment. */
 (function(){
 "use strict";
 const SALLES=["entree","inter","travail","nappe","sortie"];
@@ -21,8 +21,8 @@ const ETAPES=[
    texteOption:"Risque de contamination alpha : on monte deux filtres THE en série. Si le premier laisse passer des particules, le second les arrête.",
    observeOption:"deux filtres THE l’un derrière l’autre avant le rejet."},
   {court:"Surveiller et contrôler",titre:"Surveiller et contrôler",voir:["indic","aerosol"],m:[470,330],
-   texte:"Avant d’entrer, l’indicateur montre que le sas de travail est bien en dépression. Pendant le chantier, la balise aérosols surveille la contamination de l’air à l’intérieur du sas. La dépression attendue est fixée par les consignes du site.",
-   observe:"si la dépression n’est plus là, on n’entre pas : on prévient."}
+   texte:"Avant d’entrer, on vérifie que le confinement dynamique fonctionne. Sur un sas souple en vinyle, le CEA contrôle plutôt une vitesse d’air à travers un orifice calibré, au moins 1 m/s, avec une alarme si elle baisse. Sur une enceinte rigide et étanche, on contrôle une dépression, de l’ordre de –20 à –40 Pa. Pendant le chantier, la balise aérosols surveille la contamination de l’air dans le sas. Les valeurs de ton chantier sont celles des consignes du site.",
+   observe:"si l’alarme sonne ou si la dépression tombe : on arrête, on sort, on prévient."}
 ];
 function ouvrir(main){
   return window.ITSasDessin.guide(main,{

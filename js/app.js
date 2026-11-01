@@ -1,7 +1,7 @@
 /* Intervention TIIN — navigation, thème, état réseau, mises à jour. */
 (function(){
 "use strict";
-const VERSION="0.2.0";
+const VERSION="0.2.1";
 const main=document.getElementById("main");
 let quitter=()=>{};
 
