@@ -13,11 +13,12 @@ window.IT_RUBRIQUES=[
     {id:"defi-choix",type:"defi",titre:"Quelle tenue pour ce chantier ?",desc:"Un choix à justifier selon le risque."}]},
   {id:"sas",num:"02",titre:"Sas et confinement",court:"Sas",
    desc:"Les quatre sas d’un chantier, les sauts de zone, la cascade de dépressions et la filtration THE.",
-   resume:"Sas complet · Confinement · Défi erreurs",
+   resume:"Sas complet · Confinement · Caisson · Défi",
    icone:'<rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="M9 5v4.5M9 14.5V19M15 5v4.5M15 14.5V19M5 12h12m-2.5-2.5L17 12l-2.5 2.5"/>',
    vues:[
     {id:"complet",type:"guide",titre:"Le sas complet",desc:"Entrée, intermédiaire, travail, sortie : comment on circule et où sont les sauts de zone.",prete:true},
     {id:"confinement",type:"guide",titre:"Le confinement dynamique",desc:"Suivre l’air de la zone propre au rejet filtré ; le cas du risque alpha.",prete:true},
+    {id:"caisson",type:"guide",titre:"Le caisson de filtration",desc:"Préfiltre, filtre THE, colmatage et changement du filtre sans rompre le confinement.",prete:true},
     {id:"defi-erreurs",type:"defi",titre:"Trouve les erreurs du sas",desc:"Cinq défauts sont cachés dans ce sas. À toi de les toucher.",prete:true},
     {id:"controles",type:"situation",titre:"Contrôles avant utilisation",desc:"La vérification à faire avant d’entrer."},
     {id:"sortie",type:"guide",titre:"Sortir en tenue étanche ventilée",desc:"Le déshabillage dans le sas intermédiaire, saut de zone par saut de zone."}]},

@@ -11,7 +11,7 @@ from playwright.async_api import async_playwright
 BASE = os.environ.get("INTERVENTION_URL", "http://localhost:8000/")
 CAPTURES = "--captures" in sys.argv
 ROUTES = ["accueil", "tenues", "sas", "carto", "mesure", "decontamination", "infos",
-          "sas/complet", "sas/confinement", "sas/defi-erreurs"]
+          "sas/complet", "sas/confinement", "sas/caisson", "sas/defi-erreurs"]
 LARGEURS = [(360, 780), (390, 844), (820, 1180), (1440, 900)]
 resultats = []
 
@@ -88,6 +88,18 @@ async def main():
         await pg.click("#pause")
         verifie(await pg.locator("#feuille.en-pause").count() == 0, "le bouton Lecture la relance")
         await pg.click("#suiv")
+        verifie("caisson" in (await pg.inner_text("#suiv")).lower(), "la dernière étape mène au caisson filtre")
+
+        print("Lecture guidée du caisson de filtration")
+        await pg.goto(BASE + "#/sas/caisson"); await pg.wait_for_timeout(300)
+        verifie("1 sur 5" in await pg.text_content("#num"), "cinq étapes, commence à la première")
+        verifie(await pg.locator('[data-c="prefiltre"].cache').count() == 1, "le préfiltre est masqué au départ")
+        await pg.click("#suiv"); await pg.click("#suiv")
+        verifie("5 000" in await pg.text_content("#texte"), "le coefficient d'épuration est expliqué")
+        await pg.check("#option"); await pg.wait_for_timeout(100)
+        verifie(await pg.locator('[data-c="the2"].cache').count() == 0, "deux THE en série avec le risque alpha")
+        await pg.click("#suiv"); await pg.click("#suiv")
+        verifie(await pg.locator('[data-c="sac"].cache').count() == 0, "le sac de changement apparaît à la dernière étape")
         verifie("défi" in (await pg.inner_text("#suiv")).lower(), "la dernière étape mène au défi")
 
         print("Mouvement réduit")
