@@ -108,8 +108,8 @@ function guide(main,cfg){
   </div>${segment(cfg.courant)}</div>
   <div class="guide">
     <figure class="feuille" id="feuille">
-      <div class="feuille-tete"><span>Vue de dessus · schéma de principe</span><button type="button" class="btn btn-pause" id="pause"></button></div>
-      ${dessin({marqueurs:ET.map(e=>e.m),id:cfg.id})}
+      <div class="feuille-tete"><span>${cfg.vue||"Vue de dessus · schéma de principe"}</span><button type="button" class="btn btn-pause" id="pause"></button></div>
+      ${cfg.svg?cfg.svg(ET.map(e=>e.m)):dessin({marqueurs:ET.map(e=>e.m),id:cfg.id})}
       <figcaption>${cfg.legende}</figcaption>
     </figure>
     <div class="panneau">
@@ -158,9 +158,9 @@ function guide(main,cfg){
 }
 
 function segment(courant){
-  const l=[["complet","Le sas complet"],["confinement","Confinement"],["defi-erreurs","Défi : trouve les erreurs"]];
+  const l=[["complet","Le sas complet"],["confinement","Confinement"],["caisson","Caisson filtre"],["defi-erreurs","Défi : trouve les erreurs"]];
   return `<nav class="segment" aria-label="Activités du sas">${l.map(([id,t])=>`<a href="#/sas/${id}"${id===courant?' aria-current="page"':""}>${t}</a>`).join("")}</nav>`;
 }
 
-window.ITSasDessin={dessin,guide,segment};
+window.ITSasDessin={dessin,guide,segment,marqueurs:m=>m.map((p,i)=>`<g class="marq couche" data-m="${i}" aria-hidden="true"><circle cx="${p[0]}" cy="${p[1]}" r="12"/><text x="${p[0]}" y="${p[1]+4}" text-anchor="middle">${i+1}</text></g>`).join("")};
 })();

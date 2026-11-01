@@ -31,7 +31,7 @@ function ouvrir(main){
     lead:"Suis l’air : il entre par le côté propre, traverse les sas vers le sas de travail et ressort filtré. Cinq étapes pour comprendre pourquoi la contamination reste dans le chantier.",
     legende:'<span><i></i>sens de l’air</span><span>P₀ &gt; P₁ &gt; P₂ &gt; P₃ : la pression baisse vers le sas de travail</span><span>Schéma de principe, non dimensionné</span>',
     etapes:ETAPES,option:{label:"Risque de contamination alpha",couches:["the2","alpha"],apres:3},
-    suite:{href:"#/sas/defi-erreurs",txt:"Passer au défi"}
+    suite:{href:"#/sas/caisson",txt:"Voir le caisson filtre"}
   });
 }
 window.ITSasConfinement={ouvrir,ETAPES};

@@ -301,6 +301,19 @@ a.vue:hover{border-color:var(--brand-text)}
 .option input{width:22px;height:22px;accent-color:var(--primary);flex-shrink:0}
 @media (max-width:640px){.sch .t-zone{font-size:16px}.sch .t-zone.t-etroit{font-size:14px}.sch .t-equip{display:none}.sch .t-saut{font-size:15px}.sch .t-alpha{font-size:13px}}
 
+/* caisson de filtration */
+.sch .gaine-rect{fill:var(--zone-transit);stroke:var(--sch-ink);stroke-width:2}
+.sch .cadre-dnf{fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:6 5}
+.sch .t-dnf{font-size:12px;font-weight:600;fill:var(--accent-text)}
+.sch .prefiltre{stroke:var(--sch-ink);stroke-width:1.8}
+.sch .pf-point{fill:var(--sch-muted)}
+.sch .grosse{fill:var(--sch-muted)}
+.sch .fine{fill:var(--accent)}
+.sch .the-cadre{fill:var(--paper);stroke:var(--sch-ink);stroke-width:2.2}
+.sch .the-plis{fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linejoin:round}
+.sch .joint{fill:var(--accent)}
+.sch .sac{fill:var(--zone-transit);stroke:var(--film);stroke-width:2;stroke-dasharray:6 4}
+
 /* défi : trouver les erreurs */
 .defi-zone{cursor:pointer}
 .defi-zone .cible{fill:transparent;stroke:transparent;stroke-width:2;rx:10}

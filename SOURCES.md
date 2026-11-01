@@ -21,12 +21,18 @@ Règle de l'application : **aucune valeur réglementaire, aucun seuil, aucun cod
 | Filtration très haute efficacité (THE) avant tout rejet | IRSN [1] |
 | Extraction mettant la zone de travail en dépression, contrôle du confinement avant les travaux | INRS [2], CEA [4] |
 | Contrôle du confinement dynamique : sas souple en vinyle → vitesse d'air ≥ 1 m/s à travers un orifice calibré, avec alarme ; enceinte rigide étanche → dépression de –20 à –40 Pa | CEA [4] chap. « Le confinement des chantiers d'assainissement-démantèlement » (tableau 10 et fig. 96) |
+| Caisson de filtration : dernier niveau de filtration (DNF) = dispositif ultime de filtration des aérosols avant tout rejet ; caisson « à sas étanche » permettant de changer le filtre sans rupture de confinement, par sac vinyle | IRSN [7] § 1.2.1 à 1.2.3, § 2.3 |
+| Préfiltre en amont des filtres principaux, pour limiter leur colmatage | IRSN [7] § 1.2.9 |
+| Filtre THE : médium filtrant dans un cadre rigide, joint écrasé sur le plan de joint contre les fuites de contournement ; plusieurs filtres possibles en série dans un caisson | IRSN [7] § 1.2.4 à 1.2.8 |
+| Coefficient d'épuration E = concentration amont / concentration aval ; supérieur à 5 000 pour un filtre THE neuf (aérosol d'uranine, NF X 44-011) | IRSN [7] § 1.2.8 et 1.2.10 |
+| Manomètre et prises de pression mesurant la perte de charge ; rupture possible du médium en cas de colmatage excessif | IRSN [7] § 1.2.11, § 2.3 |
+| Colmatage des filtres → baisse du débit d'extraction | CEA [4] |
 | Défi « Trouve les erreurs » : passage qui court-circuite le sas intermédiaire, pas de contaminamètre en sortie, un seul THE malgré le risque alpha, film déchiré, pas de dépression | Conséquences directes des lignes ci-dessus |
 
 ### Volontairement non affiché
 
 - **Valeur de dépression d'un sas** : la valeur INRS [2] (chantiers d'amiante) n'est pas utilisée. Les critères affichés sont ceux du CEA [4], présentés comme des exemples ; l'application rappelle que les consignes du site priment.
-- **Efficacité chiffrée des filtres THE** : non affichée.
+- **Valeurs d'essai d'homologation des caissons** (pressions, pertes de charge et températures d'essai de l'IRSN [7]) : non affichées, ce sont des conditions de laboratoire, pas des consignes d'exploitation.
 - **Placement exact des équipements et des poubelles** : les positions du schéma sont des positions de principe.
 
 ### Références
@@ -39,6 +45,7 @@ Règle de l'application : **aucune valeur réglementaire, aucun seuil, aucun cod
 4. CEA, *L'assainissement-démantèlement des installations nucléaires*, monographie de la Direction de l'énergie nucléaire n° 13, Éditions du Moniteur, 2017. Confinement des chantiers (barrières statiques et dynamiques, types de sas, critères de dépression et de vitesse d'air, ventilation), techniques de décontamination (gels, mousses, décapage), caractérisation et cartographie radiologique, déchets.
 5. CEA, posters de l'exposition INFODEM (démantèlement), conception CEA 2006. Accès en zone contrôlée par un sas, habillage et déshabillage, contrôle de non-contamination à chaque sortie de zone, protections contre la contamination (tenue de zone, masque et combinaison, tenue ventilée), frottis, cartographie.
 6. CEA, dossier de presse *De l'assainissement-démantèlement des anciennes installations nucléaires au pôle de valorisation des sites industriels*, voyage de presse du 1er avril 2015. Mesure et cartographie radiologiques, décontamination.
+7. IRSN (H. Desjonquères), *Spécification technique CTHEN 14-07 : caisson pour filtres THE pouvant équiper le dernier niveau de filtration des installations nucléaires*, rapport PSN-RES/SCA/2014-59, indice 1, 2014.
 
 ## Rubriques à venir : sources disponibles
 
