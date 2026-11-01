@@ -11,7 +11,7 @@ Cinq rubriques, chacune en trois temps : une **lecture guidée** sur un schéma 
 | Rubrique | Adresse | État |
 |---|---|---|
 | Tenues et protections | `#/tenues` | en préparation |
-| Sas et confinement | `#/sas` | **Le confinement dynamique** (`#/sas/confinement`) et **Trouve les erreurs du sas** (`#/sas/defi-erreurs`) publiés ; montage, contrôles et sortie en préparation |
+| Sas et confinement | `#/sas` | **Le sas complet** (`#/sas/complet`), **Le confinement dynamique** (`#/sas/confinement`) et **Trouve les erreurs du sas** (`#/sas/defi-erreurs`) publiés ; contrôles et sortie en TEV en préparation |
 | Cartographie radiologique | `#/carto` | en préparation |
 | Appareils de mesure | `#/mesure` | en préparation |
 | Décontamination | `#/decontamination` | en préparation |
