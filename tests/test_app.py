@@ -11,7 +11,7 @@ from playwright.async_api import async_playwright
 BASE = os.environ.get("INTERVENTION_URL", "http://localhost:8000/")
 CAPTURES = "--captures" in sys.argv
 ROUTES = ["accueil", "tenues", "sas", "carto", "mesure", "decontamination", "infos",
-          "sas/confinement", "sas/defi-erreurs"]
+          "sas/complet", "sas/confinement", "sas/defi-erreurs"]
 LARGEURS = [(360, 780), (390, 844), (820, 1180), (1440, 900)]
 resultats = []
 
@@ -55,24 +55,39 @@ async def main():
         verifie(await pg.get_attribute('.tabs a[data-onglet="sas"]', "aria-current") == "page", "l'onglet Sas est marqué actif")
         verifie("Intervention TIIN" in await pg.title(), "titre de page renseigné")
 
-        print("Lecture guidée du confinement")
+        print("Lecture guidée du sas complet")
+        await pg.goto(BASE + "#/sas/complet"); await pg.wait_for_timeout(300)
         verifie("1 sur 6" in await pg.text_content("#num"), "commence à l'étape 1")
-        verifie(await pg.locator('.couche[data-c="3"].cache').count() == 1, "les flux d'air sont masqués au départ")
+        verifie(await pg.locator('[data-c="sortie"].cache').count() == 1, "le sas de sortie est masqué au départ")
+        for _ in range(4):
+            await pg.click("#suiv")
+        verifie("5 sur 6" in await pg.text_content("#num"), "Étape suivante avance")
+        verifie(await pg.locator('[data-c="sauts"].cache').count() == 0, "les sauts de zone apparaissent à l'étape 5")
+        verifie(await pg.locator('[data-c="contam"].cache').count() == 1, "les équipements restent masqués avant l'étape 6")
+        await pg.click("#prec")
+        verifie("4 sur 6" in await pg.text_content("#num"), "Précédent recule")
+        await pg.keyboard.press("ArrowRight")
+        verifie("5 sur 6" in await pg.text_content("#num"), "flèche droite du clavier")
+        await pg.click('.liste-etapes button[data-i="5"]')
+        verifie(await pg.locator('[data-c="contam"].cache').count() == 0, "accès direct à l'étape des équipements")
+        verifie("confinement" in (await pg.inner_text("#suiv")).lower(), "la dernière étape mène au confinement")
+
+        print("Lecture guidée du confinement, option alpha")
+        await pg.goto(BASE + "#/sas/confinement"); await pg.wait_for_timeout(300)
+        verifie(await pg.locator('[data-c="air"].cache').count() == 1, "les flux d'air sont masqués au départ")
+        verifie(await pg.locator("#optionBloc").is_hidden(), "l'option alpha n'apparaît pas avant l'étape du filtre")
         for _ in range(3):
             await pg.click("#suiv")
-        verifie("4 sur 6" in await pg.text_content("#num"), "Étape suivante avance")
-        verifie(await pg.locator('.couche[data-c="3"].cache').count() == 0, "les flux d'air apparaissent à l'étape 4")
-        verifie(await pg.locator('.couche[data-c="4"].cache').count() == 1, "le filtre THE reste masqué avant l'étape 5")
-        await pg.click("#prec")
-        verifie("3 sur 6" in await pg.text_content("#num"), "Précédent recule")
-        await pg.keyboard.press("ArrowRight")
-        verifie("4 sur 6" in await pg.text_content("#num"), "flèche droite du clavier")
+        verifie(await pg.locator('[data-c="air"].cache').count() == 0, "les flux d'air apparaissent")
+        verifie(await pg.locator('[data-c="the2"].cache').count() == 1, "un seul filtre THE sans risque alpha")
+        await pg.check("#option"); await pg.wait_for_timeout(100)
+        verifie(await pg.locator('[data-c="the2"].cache').count() == 0, "deux filtres THE en série avec le risque alpha")
+        verifie("alpha" in (await pg.text_content("#texte")).lower(), "le texte explique le cas alpha")
         await pg.click("#pause")
         verifie(await pg.locator("#feuille.en-pause").count() == 1, "le bouton Pause arrête l'animation")
         await pg.click("#pause")
         verifie(await pg.locator("#feuille.en-pause").count() == 0, "le bouton Lecture la relance")
-        await pg.click('.liste-etapes button[data-i="5"]')
-        verifie("6 sur 6" in await pg.text_content("#num"), "accès direct à une étape")
+        await pg.click("#suiv")
         verifie("défi" in (await pg.inner_text("#suiv")).lower(), "la dernière étape mène au défi")
 
         print("Mouvement réduit")
@@ -84,18 +99,18 @@ async def main():
 
         print("Défi : trouve les erreurs")
         await pg.goto(BASE + "#/sas/defi-erreurs"); await pg.wait_for_timeout(300)
-        await pg.click('.defi-zone[data-id="transit"]')
+        await pg.click('.defi-zone[data-id="inter"]')
         verifie(await pg.inner_text("#nb") == "0", "un élément correct n'est pas compté comme erreur")
-        for z in ("film", "passage", "filtre"):
+        for z in ("film", "passage", "alpha", "contam"):
             await pg.click(f'.defi-zone[data-id="{z}"]')
-        verifie(await pg.inner_text("#nb") == "3", "trois erreurs trouvées")
+        verifie(await pg.inner_text("#nb") == "4", "quatre erreurs trouvées")
         await pg.focus('.defi-zone[data-id="indic"]'); await pg.keyboard.press("Enter")
-        verifie(await pg.inner_text("#nb") == "4", "la dernière erreur se trouve au clavier")
+        verifie(await pg.inner_text("#nb") == "5", "la dernière erreur se trouve au clavier")
         verifie("terminé" in await pg.inner_text("#retour"), "message de fin de défi")
         await pg.click("#raz")
         verifie(await pg.inner_text("#nb") == "0", "Recommencer remet à zéro")
         await pg.click("#solution")
-        verifie(await pg.inner_text("#nb") == "4", "Voir la solution montre les quatre erreurs")
+        verifie(await pg.inner_text("#nb") == "5", "Voir la solution montre les cinq erreurs")
 
         print("Rubrique en préparation")
         await pg.goto(BASE + "#/tenues"); await pg.wait_for_timeout(200)
@@ -121,8 +136,8 @@ async def main():
         await po.evaluate("navigator.serviceWorker.ready")
         await po.reload(); await po.wait_for_timeout(500)
         await ctx.set_offline(True)
-        await po.goto(BASE + "#/sas/confinement"); await po.reload(); await po.wait_for_timeout(500)
-        verifie("confinement" in (await po.inner_text("main h1")).lower(), "la lecture guidée s'ouvre hors connexion")
+        await po.goto(BASE + "#/sas/complet"); await po.reload(); await po.wait_for_timeout(500)
+        verifie("sas complet" in (await po.inner_text("main h1")).lower(), "la lecture guidée s'ouvre hors connexion")
         verifie(not await po.locator("#netStatus").is_hidden(), "la pastille « Hors ligne » s'affiche")
         await ctx.set_offline(False)
 

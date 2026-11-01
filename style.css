@@ -144,7 +144,8 @@ main:focus{outline:none}
 .encadre.non{background:var(--ko-soft);border-color:var(--ko-line)}
 .encadre.non strong{color:var(--ko)}
 .a-sourcer{display:inline;font-weight:600;color:var(--accent-text);background:var(--accent-soft);border-radius:4px;padding:0 4px}
-.segment{display:inline-flex;padding:3px;border-radius:var(--r-pill);background:var(--surface-2);gap:2px;flex-wrap:wrap;max-width:100%}
+.segment{display:inline-flex;padding:3px;border-radius:var(--r-pill);background:var(--surface-2);gap:2px;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.segment a{white-space:nowrap;flex-shrink:0}
 .segment a{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:var(--r-pill);font-weight:600;font-size:13px;color:var(--muted);text-decoration:none}
 .segment a[aria-current="page"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
 
@@ -267,6 +268,38 @@ a.vue:hover{border-color:var(--brand-text)}
 .en-pause .sch .air{animation-play-state:paused}
 @keyframes flux{to{stroke-dashoffset:-32}}
 @media (prefers-reduced-motion:reduce){.sch .air{animation:none}.sch .couche{transition:none}}
+
+
+/* sas complet */
+.sch .piece{fill:var(--zone-transit);stroke:var(--sch-ink);stroke-width:2.2}
+.sch .piece.travail{fill:var(--zone-chantier)}
+.sch .porte{fill:var(--zone-transit);stroke:none}
+.sch .paroi-fine{fill:none;stroke:var(--sch-ink);stroke-width:2.2}
+.sch .nappe{stroke:none}
+.sch .nappe-motif{stroke:var(--accent);stroke-width:1.2;opacity:.55}
+.sch .nappe-bord{fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:8 4}
+.sch .trait.fin{stroke-width:1.6}
+.sch .equip rect{fill:var(--paper);stroke:var(--sch-ink);stroke-width:1.8}
+.sch .equip .eq-trait{fill:none;stroke:var(--sch-ink);stroke-width:1.6;stroke-linecap:round}
+.sch .equip .eq-aig{stroke:var(--accent);stroke-width:2.2;stroke-linecap:round}
+.sch .equip .eq-plein{fill:var(--sch-ink)}
+.sch .equip .eq-fond{fill:var(--paper)}
+.sch .poubelle path{fill:none;stroke:var(--sch-ink);stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+.sch .parcours{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.sch .parcours.entree{stroke:var(--film);stroke-dasharray:2 7}
+.sch .parcours.sortie{stroke:var(--accent)}
+.sch .parcours-fleche{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.sch .parcours-fleche.entree{stroke:var(--film)}.sch .parcours-fleche.sortie{stroke:var(--accent)}
+.sch .saut{stroke:var(--accent-text);stroke-width:6;stroke-linecap:round}
+.sch .t-saut{font-size:11px;font-weight:700;fill:var(--accent-text)}
+.sch .panneau-alpha{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2}
+.sch .t-alpha{font-size:11px;font-weight:700;letter-spacing:.06em;fill:var(--accent-text)}
+.sch [data-c].cache{opacity:0;visibility:hidden}
+.feuille figcaption i.l-entree{background:none;border-top:3px dotted var(--film);height:0}
+.feuille figcaption i.l-sortie{background:var(--accent)}
+.option{display:flex;align-items:center;gap:10px;min-height:44px;font-size:14px;font-weight:600;cursor:pointer;padding:4px 12px;border-radius:var(--r-md);background:var(--surface-2)}
+.option input{width:22px;height:22px;accent-color:var(--primary);flex-shrink:0}
+@media (max-width:640px){.sch .t-zone{font-size:16px}.sch .t-zone.t-etroit{font-size:14px}.sch .t-equip{display:none}.sch .t-saut{font-size:15px}.sch .t-alpha{font-size:13px}}
 
 /* défi : trouver les erreurs */
 .defi-zone{cursor:pointer}

@@ -1,7 +1,7 @@
 /* Intervention TIIN — navigation, thème, état réseau, mises à jour. */
 (function(){
 "use strict";
-const VERSION="0.1.0";
+const VERSION="0.2.0";
 const main=document.getElementById("main");
 let quitter=()=>{};
 
@@ -36,7 +36,7 @@ function infos(){
   return ()=>{};
 }
 
-const VUES={"sas/confinement":m=>window.ITSasConfinement.ouvrir(m),"sas/defi-erreurs":m=>window.ITSasDefi.ouvrir(m)};
+const VUES={"sas/complet":m=>window.ITSasComplet.ouvrir(m),"sas/confinement":m=>window.ITSasConfinement.ouvrir(m),"sas/defi-erreurs":m=>window.ITSasDefi.ouvrir(m)};
 
 function route(){
   quitter();
