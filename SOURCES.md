@@ -82,6 +82,31 @@ Pour aller plus loin (formations, non utilisées pour le contenu) : INSTN, fiche
 
 ## Rubriques à venir : sources disponibles
 
-- **Cartographie, zonage, balisage** : EDF [3] § 3 : zone surveillée bleue, zone contrôlée verte, jaune, orange, rouge, avec leurs limites réglementaires (dose intégrée) et les équivalents opérationnels en débit de dose, que le rapport distingue explicitement des exigences réglementaires ; zonage propreté/déchets (ZDC/K, ZppDN : NP, N1, N2, NC). Référence réglementaire citée : arrêté « zonage » du 15 mai 2006 modifié en 2020. CEA [4] [5] [6] : cartographie radiologique, frottis.
-- **Appareils de mesure** : EDF [10] § 5.4 (contrôleur mains-pieds, portiques C1, C2, C3, contrôleur de petits objets, avec leurs seuils) ; EDF [3] (balises fixes et mobiles : iode, aérosols, gaz rares, gamma, neutrons ; portiques) ; CEA [5] (dosimètres personnels, contrôle avant sortie de zone).
+### Textes réglementaires vérifiés (Code du travail numérique, mise à jour du 1er janvier 2025)
+
+- **R4451-22** : l'employeur identifie les zones où l'exposition peut dépasser 0,08 mSv par mois (dose efficace, organisme entier), 4 mSv par mois (dose équivalente, extrémités ou peau), ou le niveau de référence radon (R4451-10). https://code.travail.gouv.fr/code-du-travail/r4451-22
+- **R4451-23** : zone surveillée bleue (< 1,25 mSv sur un mois), zone contrôlée verte (< 4 mSv sur un mois), jaune (< 2 mSv sur une heure), orange (< 100 mSv sur une heure), rouge (≥ 100 mSv sur une heure) ; zone d'extrémités ; zone radon ; zones intermittentes (arrêté) ; zone de sécurité radiologique. https://code.travail.gouv.fr/code-du-travail/r4451-23
+
+### Documents fournis par l'enseignant (2 novembre 2026)
+
+Radioprotection Cirkus (association loi 1901, rpcirkus.org), M. Ammerich et coll., 2010 à 2019 : supports de formation à la radioprotection opérationnelle. Utilisables comme supports pédagogiques ; pour une valeur réglementaire, c'est le texte en vigueur qui fait foi.
+
+| Document | Rubrique visée |
+|---|---|
+| DOC-NT-18_1 *Tableau zonage 2018* (9 sept. 2018) | Cartographie. **Attention** : écrit en 2018 ; le texte en vigueur (R4451-23, 2025) ne mentionne plus le critère « 100 mSv moyennés sur une seconde » pour les zones orange et rouge, et réintroduit les zones intermittentes. On affichera le texte en vigueur. Repères opérationnels utiles : zone d'opération des appareils mobiles (25 µSv sur une heure). |
+| DOC-FO-6_3 *Protection contre l'exposition externe* (2018) | Cartographie (temps, distance, écrans) |
+| DOC-FO-21_1 *Mesures de la contamination* (2018) | Mesure (bruit de fond, mouvement propre, rendement, sondes alpha, bêta, X, gamma), Cartographie (frottis) |
+| DOC-FO-24_1 *Les portiques de détection* (2018) | Mesure (principes, procédures en cas d'alarme) |
+| DOC-FO-11_1 *Initiation à la dosimétrie* (2010), DOC-FO-17_1 *Grandeurs dosimétriques* (2018) | Mesure (dosimètres, grandeurs opérationnelles) |
+| DOC-FO-14_2 *Statistiques simples et corrections de mesure*, DOC-FO-15_2 *Seuil de décision et limite de détection* | Mesure (pièges de mesure), niveau avancé |
+| DOC-FO-7_2 *Protection contre l'exposition interne* (2018) | Décontamination (personne : principes), Tenues |
+| DOC-FO-10_1 *Condensé de radioprotection*, DOC-FO-18_2 *Radioactivité*, DOC-FO-9_2 *Interactions rayonnement-matière*, DOC-FO-3_3 *Effets biologiques*, DOC-FO-5_2 *Schémas de désintégration*, DOC-FO-13_2 *Spectrométrie*, DOC-FO-1_2 *Jeu de la source inconnue*, DOC-FO-16_2 *TD de détection* | Plutôt Nucléa TIIN (physique) ; le jeu de la source inconnue peut inspirer un défi de mesure |
+| DOC-FO-22_1 *Cycle du combustible*, DOC-FO-26_1 *Risque radon* | Plutôt Sûreté & Cycle TIIN |
+
+**Non utilisé** : *Matériels portables et mobiles*, recueil de fiches du laboratoire CEA Marcoule DEN/MAR/DUSP/SPR/LMPS (indice 6, 2011-2012). Document interne d'un laboratoire, filigrané à son nom, et centré sur des appareils de marques précises : pas de reprise dans une application publique sans accord de diffusion.
+
+### Autres sources déjà disponibles
+
+- **Cartographie, zonage, balisage** : EDF [3] § 3 (zonage avec équivalents opérationnels en débit de dose, que le rapport distingue des exigences réglementaires ; zonage propreté K, NP, N1, N2, NC) ; EDF [10] § 3.2 et 6.3 (dépistage de la contamination, zones EVEREST) ; CEA [4] [5] [6] (cartographie, frottis).
+- **Appareils de mesure** : EDF [10] § 5.4 (contrôleur mains-pieds, portiques C1, C2, C3, contrôleur de petits objets, avec leurs seuils) ; EDF [3] (balises fixes et mobiles) ; CEA [5] (dosimètres personnels).
 - **Décontamination** : CEA [4] (gels aspirables, gels de nappage, mousses, décapage, choix selon le matériau et le radionucléide, déchets produits) ; CEA [6].
