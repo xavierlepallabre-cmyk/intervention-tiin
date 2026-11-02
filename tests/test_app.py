@@ -11,7 +11,8 @@ from playwright.async_api import async_playwright
 BASE = os.environ.get("INTERVENTION_URL", "http://localhost:8000/")
 CAPTURES = "--captures" in sys.argv
 ROUTES = ["accueil", "tenues", "sas", "carto", "mesure", "decontamination", "infos",
-          "sas/complet", "sas/confinement", "sas/caisson", "sas/defi-erreurs"]
+          "sas/complet", "sas/confinement", "sas/caisson", "sas/defi-erreurs",
+          "tenues/habillage", "tenues/tev", "tenues/deshabillage", "tenues/catalogue", "tenues/defi-ordre", "tenues/defi-choix"]
 LARGEURS = [(360, 780), (390, 844), (820, 1180), (1440, 900)]
 resultats = []
 
@@ -102,6 +103,52 @@ async def main():
         verifie(await pg.locator('[data-c="sac"].cache').count() == 0, "le sac de changement apparaît à la dernière étape")
         verifie("défi" in (await pg.inner_text("#suiv")).lower(), "la dernière étape mène au défi")
 
+        print("Tenues : lecture guidée selon la zone")
+        await pg.goto(BASE + "#/tenues/habillage"); await pg.wait_for_timeout(300)
+        verifie(await pg.locator("#pause").count() == 0, "pas de bouton Pause sur un schéma sans animation")
+        verifie(await pg.locator('[data-c="everest"].cache').count() == 1, "zone propre : pas de tenue EVEREST")
+        await pg.click("#suiv")
+        verifie(await pg.locator('[data-c="everest"].cache').count() == 0 and await pg.locator('[data-c="bleu"].cache').count() == 0, "zone contaminée : la tenue EVEREST s'ajoute par-dessus le bleu")
+        await pg.click("#suiv"); await pg.click("#suiv")
+        verifie(await pg.locator('[data-c="masque"].cache').count() == 0, "contamination dans l'air : masque filtrant")
+        await pg.click("#suiv")
+        verifie(await pg.locator('[data-c="masque"].cache').count() == 1 and await pg.locator('[data-c="heaume"].cache').count() == 0, "le heaume remplace le masque")
+        await pg.click("#suiv")
+        verifie(await pg.locator('[data-c="heaume"].cache').count() == 1 and await pg.locator('[data-c="tev-tronc"].cache').count() == 0, "dernière étape : la TEV")
+
+        print("Tenues : retirer une TEV")
+        await pg.goto(BASE + "#/tenues/deshabillage"); await pg.wait_for_timeout(300)
+        verifie("1 sur 8" in await pg.text_content("#num"), "huit gestes, en commençant par le fixateur")
+        verifie(await pg.locator('[data-c="tev-tronc"].cache').count() == 0, "la TEV est portée au départ")
+        for _ in range(7):
+            await pg.click("#suiv")
+        verifie(await pg.locator('[data-c="tev-bas"].cache').count() == 1 and await pg.locator('[data-c="cagoule"].cache').count() == 1, "à la fin, TEV et cagoule sont retirées")
+
+        print("Tenues : catalogue")
+        await pg.goto(BASE + "#/tenues/catalogue"); await pg.wait_for_timeout(300)
+        verifie(await pg.locator(".fiche-tenue").count() == 6, "six fiches d'équipement")
+        verifie("irradiation" in (await pg.inner_text("main")).lower(), "le catalogue rappelle qu'aucune tenue ne protège de l'irradiation")
+
+        print("Tenues : défi de l'ordre")
+        await pg.goto(BASE + "#/tenues/defi-ordre"); await pg.wait_for_timeout(300)
+        await pg.click('.chip-btn[data-s="gants"]')
+        verifie(await pg.locator(".carte-ordre").count() == 3, "la séquence des gants a trois gestes")
+        await pg.click("#solution")
+        verifie(await pg.locator(".carte-ordre.bon").count() == 3, "Voir l'ordre range tout correctement")
+        await pg.click("#melanger")
+        verifie(await pg.locator(".carte-ordre.bon").count() == 0, "Mélanger efface la vérification")
+        premier = await pg.locator(".carte-ordre .txt").first.inner_text()
+        await pg.locator('.btn-fleche[data-k="0"][data-d="1"]').click()
+        verifie(await pg.locator(".carte-ordre .txt").nth(1).inner_text() == premier, "la flèche descend un geste d'un cran")
+
+        print("Tenues : défi quelle tenue")
+        await pg.goto(BASE + "#/tenues/defi-choix"); await pg.wait_for_timeout(300)
+        await pg.click(".option-btn >> nth=0")
+        verifie(await pg.locator(".option-btn.bon").count() == 1 and "Oui" in await pg.inner_text("#explication"), "la bonne réponse est confirmée et expliquée")
+        await pg.click("#suiv"); await pg.click(".option-btn >> nth=0")
+        verifie("Non" in await pg.inner_text("#explication"), "une mauvaise réponse est expliquée")
+        verifie(await pg.locator("#prec").is_enabled(), "on peut revenir à la situation précédente")
+
         print("Mouvement réduit")
         ctx = await nav.new_context(reduced_motion="reduce", viewport={"width": 1280, "height": 860})
         pr = await ctx.new_page()
@@ -125,7 +172,7 @@ async def main():
         verifie(await pg.inner_text("#nb") == "5", "Voir la solution montre les cinq erreurs")
 
         print("Rubrique en préparation")
-        await pg.goto(BASE + "#/tenues"); await pg.wait_for_timeout(200)
+        await pg.goto(BASE + "#/carto"); await pg.wait_for_timeout(200)
         verifie(await pg.locator(".vue.prep").count() == 5, "les vues non publiées sont annoncées « En préparation »")
         verifie(await pg.locator("a.vue").count() == 0, "aucun lien vers une vue non publiée")
 

@@ -10,7 +10,7 @@ Cinq rubriques, chacune en trois temps : une **lecture guidée** sur un schéma 
 
 | Rubrique | Adresse | État |
 |---|---|---|
-| Tenues et protections | `#/tenues` | en préparation |
+| Tenues et protections | `#/tenues` | **Quelle tenue, dans quelle zone ?**, **Mettre une TEV**, **Retirer une TEV**, **Catalogue**, défis **l'ordre** et **quelle tenue ?** publiés |
 | Sas et confinement | `#/sas` | **Le sas complet** (`#/sas/complet`), **Le confinement dynamique** (`#/sas/confinement`), **Le caisson de filtration** (`#/sas/caisson`) et **Trouve les erreurs du sas** (`#/sas/defi-erreurs`) publiés ; contrôles et sortie en TEV en préparation |
 | Cartographie radiologique | `#/carto` | en préparation |
 | Appareils de mesure | `#/mesure` | en préparation |

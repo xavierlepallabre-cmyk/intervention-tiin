@@ -13,7 +13,7 @@ function accueil(main){
       <h1>Intervenir en zone contrôlée, geste par geste</h1>
       <p class="lead">S’habiller, confiner, cartographier, mesurer, décontaminer. Chaque notion commence par un schéma animé que l’on suit pas à pas, puis une mise en situation et des défis.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="#/sas/complet">Commencer par le sas</a>
+        <a class="btn btn-primary" href="#/tenues/habillage">Commencer par les tenues</a>
         <a class="btn" href="#/sas/defi-erreurs">Un défi</a>
       </div>
     </div>
