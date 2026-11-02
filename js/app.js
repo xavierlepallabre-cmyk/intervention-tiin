@@ -1,7 +1,7 @@
 /* Intervention TIIN — navigation, thème, état réseau, mises à jour. */
 (function(){
 "use strict";
-const VERSION="0.4.0";
+const VERSION="1.0.0";
 const main=document.getElementById("main");
 let quitter=()=>{};
 
@@ -36,7 +36,7 @@ function infos(){
   return ()=>{};
 }
 
-const VUES={"tenues/habillage":m=>window.ITTenuesGuides.habillage(m),"tenues/tev":m=>window.ITTenuesGuides.tev(m),"tenues/deshabillage":m=>window.ITTenuesGuides.deshabillage(m),"tenues/catalogue":m=>window.ITTenuesCatalogue.ouvrir(m),"tenues/defi-ordre":m=>window.ITTenuesDefis.ordre(m),"tenues/defi-choix":m=>window.ITTenuesDefis.choix(m),"sas/complet":m=>window.ITSasComplet.ouvrir(m),"sas/caisson":m=>window.ITSasCaisson.ouvrir(m),"sas/confinement":m=>window.ITSasConfinement.ouvrir(m),"sas/defi-erreurs":m=>window.ITSasDefi.ouvrir(m)};
+const VUES={"carto/zonage":m=>window.ITCarto.zonage(m),"carto/releve":m=>window.ITCarto.releve(m),"carto/alara":m=>window.ITCarto.alara(m),"carto/defi":m=>window.ITCarto.defi(m),"mesure/appareils":m=>window.ITMesure.appareils(m),"mesure/geste":m=>window.ITMesure.geste(m),"mesure/sortie":m=>window.ITMesure.sortie(m),"mesure/pieges":m=>window.ITMesure.pieges(m),"mesure/defi":m=>window.ITMesure.defi(m),"decontamination/techniques":m=>window.ITDecont.techniques(m),"decontamination/choix":m=>window.ITDecont.choix(m),"decontamination/personne":m=>window.ITDecont.personne(m),"decontamination/defi":m=>window.ITDecont.defi(m),"tenues/habillage":m=>window.ITTenuesGuides.habillage(m),"tenues/tev":m=>window.ITTenuesGuides.tev(m),"tenues/deshabillage":m=>window.ITTenuesGuides.deshabillage(m),"tenues/catalogue":m=>window.ITTenuesCatalogue.ouvrir(m),"tenues/defi-ordre":m=>window.ITTenuesDefis.ordre(m),"tenues/defi-choix":m=>window.ITTenuesDefis.choix(m),"sas/complet":m=>window.ITSasComplet.ouvrir(m),"sas/caisson":m=>window.ITSasCaisson.ouvrir(m),"sas/confinement":m=>window.ITSasConfinement.ouvrir(m),"sas/defi-erreurs":m=>window.ITSasDefi.ouvrir(m)};
 
 function route(){
   quitter();
