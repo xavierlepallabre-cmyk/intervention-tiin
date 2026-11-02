@@ -80,7 +80,52 @@ Règle de l'application : **aucune valeur réglementaire, aucun seuil, aucun cod
 
 Pour aller plus loin (formations, non utilisées pour le contenu) : INSTN, fiches 46C « Porter une tenue étanche ventilée MAR 95.3 ou PK17 » et 72B « Port du heaume ventilé et de la tenue étanche ventilée type Mururoa », catalogue 2026 Cherbourg.
 
-## Rubriques à venir : sources disponibles
+## Rubrique Cartographie radiologique
+
+| Notion affichée | Source |
+|---|---|
+| Zones surveillée bleue, contrôlées verte, jaune, orange, rouge et leurs limites ; seuil de délimitation 0,08 mSv/mois ; zones d'extrémités et radon | Code du travail R4451-22 et R4451-23 [13] |
+| Équivalents en débit de dose (zone contrôlée au-delà de 7,5 µSv/h, verte jusqu'à 25 µSv/h ; jaune < 2 mSv sur 1 h ; orange < 100 mSv sur 1 h ; rouge au-delà), présentés comme repères opérationnels | EDF [3] § 3, qui les distingue des exigences réglementaires |
+| Zonage propreté EVEREST (0,4 et 40 Bq/cm²) | EDF [10] § 6.3 |
+| Radiamètre : contrôle de bon fonctionnement au retrait du magasin, temps de réponse, cartographies, mesure au poste ; classement affiché à l'entrée du local ; points chauds signalés par pancarte à trisecteur jaune, orange ou rouge et balisés ; balise gamma placée après mesure du bruit de fond | EDF [10] § 3.1, 5.3.1 |
+| Facteur 10⁴ entre 1 m et 10 mm pour une source ponctuelle ; ne jamais manipuler un objet non caractérisé | EDF [10] § 3.1.3 |
+| Mesure directe (sonde à moins de 5 mm, déplacement très lent, surfaces sèches et planes, fixée et non fixée) ; frottis (non fixée ; coton 15 cm² pour mesure, chiffonnette 100 à 200 cm² pour dépistage) ; mesure par personnel RP, dépistage par intervenant formé | EDF [10] § 5.3.2 |
+| Simulateur temps-distance-écran : 1 GBq de Cs 137 → 73 µGy/h à 1 m, proportionnel à l'activité, loi en 1/d², atténuation e^(−µx) avec µ = 1,19 cm⁻¹ (plomb, 662 keV), rayonnement diffusé négligé | RP Cirkus [14] (exercices résolus) |
+
+## Rubrique Appareils de mesure
+
+| Notion affichée | Source |
+|---|---|
+| Dosimètre passif (nominatif, poitrine, mensuel et lu en laboratoire chez EDF) ; dosimètre opérationnel (attribué à l'entrée, pas d'échange, alarmes débit et dose et conduites associées, saturation) | EDF [10] § 5.5 |
+| Radiamètres gamma et neutrons (sphère orientée vers la source, appareil éloigné du corps) ; balises gamma, aérosols, iode ; détecteurs à gaz, scintillateurs NaI, plastique, ZnS, semi-conducteurs | EDF [10] § 5.1 à 5.3 ; EDF [3] (balises gaz rares et neutrons) |
+| Sondes alpha, bêta, X, gamma, Geiger-Müller « bêta mous » et leurs conseils d'utilisation ; mise en route à l'avance, bruit de fond, intégrité ; ictomètre et échelle de comptage | RP Cirkus [15] |
+| Parcours de sortie (chantier, CMP, C1, vestiaire chaud, C2 et CPO, vestiaire froid, C3), rôle de chaque contrôleur et premiers seuils d'alarme ; conduite si le C2 sonne | EDF [10] § 3.2.1, 5.4 et chap. 4 (déclenchement C2) |
+| Pièges : perturbations par postes de soudure HF et téléphones, piles faibles, humidité | EDF [10] § 5.5.2 ; RP Cirkus [15] |
+
+Les seuils d'alarme des contrôleurs sont ceux des centrales EDF en 2014 ; l'application le précise.
+
+## Rubrique Décontamination
+
+| Notion affichée | Source |
+|---|---|
+| Objectif : concentrer la radioactivité dans un volume minimal ; critères de choix (niveau radiologique, accessibilité, déchets, mise en œuvre, gestion des déchets) | CEA [5] poster C4 ; CEA [6] |
+| Caractériser, définir le scénario et prévoir les déchets secondaires avant de décontaminer ; enjeux (dose, catégorie des déchets, volumes) | CEA [4] chap. « Le traitement et la décontamination des structures » |
+| Gels aspirables (film de 0,5 à 2 mm, séchage et paillettes, brossage ou aspiration, pas d'effluent, contamination fixée dans les oxydes métalliques) ; mousses (volumes complexes, moins d'effluents) ; décapage laser (peinture sur béton, sélectif, robotisable, sans effluent liquide) | CEA [4] |
+| Décontamination mécanique (raboteuse, sablage, assainissement final, béton ou métal) ; thermique (glace carbonique) | CEA [5], CEA [6] |
+| Maintenir humides les surfaces contaminées ; décontaminer les outillages ; déchets alpha gérés à part | EDF [10] § 3.2.2 et 3.4.2 |
+| Personne : irradiation ≠ contamination ; eau et savon, ne pas léser la peau ; décontamination interne réservée au médecin du travail | RP Cirkus [16] |
+| Personne : éviter de transformer une contamination externe en interne, décontaminer au plus tôt, mesurer avant ou garder la lingette | EDF [10] chap. 4 |
+
+Non affiché faute de source : les techniques d'essuyage, d'aspiration simple et les vernis pelables, ainsi que les produits utilisés par le médecin du travail.
+
+### Références (suite)
+
+13. Code du travail, articles R4451-22 et R4451-23, version en vigueur au 1er janvier 2025 (Code du travail numérique).
+14. Radioprotection Cirkus, M. Ammerich, *Protection contre l'exposition externe*, DOC-FO-6_3, 28 mars 2018.
+15. Radioprotection Cirkus, M. Ammerich, *Les appareils de radioprotection : mesures de la contamination*, DOC-FO-21_1, 15 avril 2018.
+16. Radioprotection Cirkus, M. Ammerich, *Protection contre l'exposition interne*, DOC-FO-7_2, 15 juin 2018.
+
+## Sources documentaires disponibles
 
 ### Textes réglementaires vérifiés (Code du travail numérique, mise à jour du 1er janvier 2025)
 
@@ -105,8 +150,3 @@ Radioprotection Cirkus (association loi 1901, rpcirkus.org), M. Ammerich et coll
 
 **Non utilisé** : *Matériels portables et mobiles*, recueil de fiches du laboratoire CEA Marcoule DEN/MAR/DUSP/SPR/LMPS (indice 6, 2011-2012). Document interne d'un laboratoire, filigrané à son nom, et centré sur des appareils de marques précises : pas de reprise dans une application publique sans accord de diffusion.
 
-### Autres sources déjà disponibles
-
-- **Cartographie, zonage, balisage** : EDF [3] § 3 (zonage avec équivalents opérationnels en débit de dose, que le rapport distingue des exigences réglementaires ; zonage propreté K, NP, N1, N2, NC) ; EDF [10] § 3.2 et 6.3 (dépistage de la contamination, zones EVEREST) ; CEA [4] [5] [6] (cartographie, frottis).
-- **Appareils de mesure** : EDF [10] § 5.4 (contrôleur mains-pieds, portiques C1, C2, C3, contrôleur de petits objets, avec leurs seuils) ; EDF [3] (balises fixes et mobiles) ; CEA [5] (dosimètres personnels).
-- **Décontamination** : CEA [4] (gels aspirables, gels de nappage, mousses, décapage, choix selon le matériau et le radionucléide, déchets produits) ; CEA [6].

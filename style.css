@@ -383,6 +383,75 @@ a.vue:hover{border-color:var(--brand-text)}
 .option-btn.bon{border-color:var(--ok-line);background:var(--ok-soft);font-weight:600}
 .option-btn.faux{border-color:var(--ko-line);background:var(--ko-soft)}
 
+/* fiches simples */
+.fiche-simple{align-content:start}
+.fiche-simple h2{font-size:17px}
+.points{margin:0;padding-left:20px;display:grid;gap:5px;font-size:14px}
+.petit-txt{font-size:13px;color:var(--muted)}
+
+/* cartographie */
+.curseur-lbl{display:block;font-size:14px;font-weight:600;margin-top:4px}
+input[type=range]{width:100%;min-height:44px;accent-color:var(--primary)}
+.echelle-zones{display:grid;grid-template-columns:26.8fr 7.4fr 27.2fr 24.3fr 14.3fr;gap:2px;height:10px;border-radius:5px;overflow:hidden}
+.zone-res{display:flex;align-items:center;gap:12px;padding:12px;border-radius:var(--r-md);background:var(--surface-2);min-height:72px}
+.pastille-zone{width:40px;height:40px;border-radius:var(--r-pill);flex-shrink:0;border:2px solid var(--surface)}
+.tab-zones{width:100%;border-collapse:collapse;font-size:13.5px}
+.tab-zones td{padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+.tab-zones td:first-child{font-weight:600;white-space:nowrap}
+.tab-zones i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.sch .mur{fill:none;stroke:var(--sch-ink);stroke-width:4}
+.sch .zone-ok{fill:#2E9E5B;opacity:.14}
+.sch .zone-chaud{fill:#E6B422;opacity:.4;stroke:#B48A16;stroke-width:2;stroke-dasharray:6 4}
+.sch .porte-plan{fill:var(--paper)}
+.sch .tuyau{stroke:var(--sch-muted);stroke-width:12;stroke-linecap:round}
+.sch .vanne{fill:var(--paper);stroke:var(--sch-ink);stroke-width:2.4;stroke-linejoin:round}
+.sch .poste{fill:var(--zone-transit);stroke:var(--sch-ink);stroke-width:1.6}
+.sch .appareil,.sch .boitier{fill:var(--paper);stroke:var(--sch-ink);stroke-width:2}
+.sch .t-cadran{fill:none;stroke:var(--sch-ink);stroke-width:1.6}
+.sch .pt-mesure{fill:var(--film);stroke:var(--paper);stroke-width:2}
+.sch .etiq{fill:var(--paper);stroke:var(--film);stroke-width:1.4}
+.sch .t-etiq{font-size:12px;font-weight:700;fill:var(--sch-ink)}
+.sch .pancarte{fill:#F2C230;stroke:#1B2740;stroke-width:1.6}
+.sch .trefle{fill:#1B2740}
+.sch .trajet-sonde{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-dasharray:4 6}
+.sch .sonde-plan{fill:var(--accent);stroke:var(--sch-ink);stroke-width:1.2}
+.sch .frottis{fill:#FFFFFF;stroke:var(--accent-text);stroke-width:2}
+.sch .affiche{fill:var(--paper);stroke:var(--sch-ink);stroke-width:1.6}.sch .affiche-b{fill:#2E9E5B}
+.sch .balise-g{fill:var(--paper);stroke:var(--sch-ink);stroke-width:2}
+.sch .sol{stroke:var(--sch-ink);stroke-width:2}
+.sch .source{fill:var(--accent);stroke:var(--sch-ink);stroke-width:2}
+.sch .plomb{fill:#7D8696;stroke:#3A3F4B;stroke-width:1.4}
+.sch .rayon{fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:3 6}
+.sch .perso{fill:var(--zone-transit);stroke:var(--sch-ink);stroke-width:2}
+.sch .cote{fill:none;stroke:var(--sch-muted);stroke-width:1.4;marker-start:none}
+.resultat .gros{font-size:28px;font-weight:700;color:var(--brand-text);line-height:1.1}
+.formule{margin-top:14px}
+.carte-zone{display:grid;gap:8px;padding:10px 12px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--surface)}
+.carte-zone .txt{display:flex;flex-direction:column}
+.carte-zone.bon{border-color:var(--ok-line);background:var(--ok-soft)}.carte-zone.faux{border-color:var(--ko-line);background:var(--ko-soft)}
+.carte-zone .corr{color:var(--ko);font-weight:600}
+.choix-zone{display:flex;flex-wrap:wrap;gap:6px}
+.z-btn{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 10px;border-radius:var(--r-md);border:1px solid var(--line);background:var(--surface);font-size:13px;font-weight:600;color:var(--ink);cursor:pointer}
+.z-btn i{width:14px;height:14px;border-radius:4px;flex-shrink:0}
+.z-btn[aria-pressed="true"]{border-color:var(--primary);box-shadow:0 0 0 2px var(--primary) inset}
+
+/* mesure */
+.sch .surface{fill:var(--zone-transit);stroke:var(--sch-ink);stroke-width:1.6}
+.sch .contam-f{fill:var(--accent)}.sch .contam-nf{fill:#D63A2F}
+.sch .ecran-m{fill:#1B2740}.sch .t-ecran{font-size:16px;font-weight:700;fill:#7FD6A8;font-family:var(--font)}
+.sch .bouton-m{fill:var(--zone-transit);stroke:var(--sch-ink);stroke-width:1.4}
+.sch .cable{fill:none;stroke:var(--sch-ink);stroke-width:3}
+.sch .sonde-type{fill:var(--paper);stroke:var(--sch-ink);stroke-width:1.6}
+.sch .sonde-c{fill:var(--paper);stroke:var(--sch-ink);stroke-width:2.2}.sch .fenetre{fill:var(--accent)}
+.sch .cote-m{fill:none;stroke:var(--accent-text);stroke-width:2}
+.sch .t-cote{font-size:13px;font-weight:700;fill:var(--accent-text)}
+.sch .fleche-v{fill:none;stroke:var(--film);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.sch .zone-c{fill:var(--zone-chantier);stroke:var(--sch-muted);stroke-width:1.4;stroke-dasharray:6 4}
+.sch .portique{fill:var(--paper);stroke:var(--sch-ink);stroke-width:2.4}
+.sch .vestiaire{fill:var(--zone-transit);stroke:var(--sch-ink);stroke-width:1.6}
+.sch .poste-ctrl.cache{opacity:.25;visibility:visible}
+.sch .alarme{fill:#D63A2F}.sch .alarme-r{fill:none;stroke:#D63A2F;stroke-width:3;stroke-linecap:round}
+
 /* défi : trouver les erreurs */
 .defi-zone{cursor:pointer}
 .defi-zone .cible{fill:transparent;stroke:transparent;stroke-width:2;rx:10}

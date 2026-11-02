@@ -1,11 +1,11 @@
 /* Intervention TIIN — fonctionnement hors connexion.
    Ne pas modifier CACHE à la main : lancer « python tools/version.py » avant chaque publication. */
-const CACHE='intervention-tiin-5984048f30';
+const CACHE='intervention-tiin-350be9afcf';
 const ASSETS=['./','./index.html','./style.css','./icon.svg','./manifest.webmanifest',
  './assets/fonts/lexend.css','./assets/fonts/lexend-0.ttf','./assets/fonts/lexend-1.ttf','./assets/fonts/lexend-2.ttf','./assets/fonts/lexend-3.ttf','./assets/fonts/lexend-4.ttf',
  './assets/logo-tocqueville.png','./assets/logo-bac-pro-tiin.svg',
  './icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png','./icons/apple-touch-icon.png',
- './js/rubriques.js','./js/accueil.js','./js/sas-dessin.js','./js/sas-complet.js','./js/sas-confinement.js','./js/sas-caisson.js','./js/sas-defi.js','./js/tenues-dessin.js','./js/tenues-guides.js','./js/tenues-catalogue.js','./js/tenues-defis.js','./js/app.js'];
+ './js/commun.js','./js/rubriques.js','./js/accueil.js','./js/sas-dessin.js','./js/sas-complet.js','./js/sas-confinement.js','./js/sas-caisson.js','./js/sas-defi.js','./js/tenues-dessin.js','./js/tenues-guides.js','./js/tenues-catalogue.js','./js/tenues-defis.js','./js/carto.js','./js/mesure.js','./js/decontamination.js','./js/app.js'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS.map(u=>new Request(u,{cache:'reload'}))))));
 self.addEventListener('message',e=>{if(e.data&&e.data.type==='ACTIVATE_UPDATE')self.skipWaiting();});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x.startsWith('intervention-tiin-')&&x!==CACHE).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));

@@ -12,7 +12,10 @@ BASE = os.environ.get("INTERVENTION_URL", "http://localhost:8000/")
 CAPTURES = "--captures" in sys.argv
 ROUTES = ["accueil", "tenues", "sas", "carto", "mesure", "decontamination", "infos",
           "sas/complet", "sas/confinement", "sas/caisson", "sas/defi-erreurs",
-          "tenues/habillage", "tenues/tev", "tenues/deshabillage", "tenues/catalogue", "tenues/defi-ordre", "tenues/defi-choix"]
+          "tenues/habillage", "tenues/tev", "tenues/deshabillage", "tenues/catalogue", "tenues/defi-ordre", "tenues/defi-choix",
+          "carto/zonage", "carto/releve", "carto/alara", "carto/defi",
+          "mesure/appareils", "mesure/geste", "mesure/sortie", "mesure/pieges", "mesure/defi",
+          "decontamination/techniques", "decontamination/choix", "decontamination/personne", "decontamination/defi"]
 LARGEURS = [(360, 780), (390, 844), (820, 1180), (1440, 900)]
 resultats = []
 
@@ -171,10 +174,55 @@ async def main():
         await pg.click("#solution")
         verifie(await pg.inner_text("#nb") == "5", "Voir la solution montre les cinq erreurs")
 
-        print("Rubrique en préparation")
-        await pg.goto(BASE + "#/carto"); await pg.wait_for_timeout(200)
-        verifie(await pg.locator(".vue.prep").count() == 5, "les vues non publiées sont annoncées « En préparation »")
-        verifie(await pg.locator("a.vue").count() == 0, "aucun lien vers une vue non publiée")
+        print("Toutes les rubriques sont publiées")
+        for r in ("tenues", "sas", "carto", "mesure", "decontamination"):
+            await pg.goto(BASE + "#/" + r); await pg.wait_for_timeout(150)
+            verifie(await pg.locator(".vue.prep").count() == 0 and await pg.locator("a.vue").count() >= 4, f"{r} : toutes les vues sont ouvertes")
+
+        print("Cartographie")
+        await pg.goto(BASE + "#/carto/zonage"); await pg.wait_for_timeout(200)
+        await pg.fill("#ddd", "1"); await pg.locator("#ddd").dispatch_event("input")
+        verifie("verte" in (await pg.inner_text("#res")).lower(), "10 µSv/h : zone contrôlée verte")
+        await pg.fill("#ddd", "3"); await pg.locator("#ddd").dispatch_event("input")
+        verifie("jaune" in (await pg.inner_text("#res")).lower(), "1 mSv/h : zone contrôlée jaune")
+        await pg.fill("#ddd", "5.5"); await pg.locator("#ddd").dispatch_event("input")
+        verifie("rouge" in (await pg.inner_text("#res")).lower(), "plus de 100 mSv/h : zone rouge")
+        await pg.goto(BASE + "#/carto/alara"); await pg.wait_for_timeout(200)
+        verifie("73" in await pg.inner_text("#debit"), "1 GBq de Cs 137 à 1 m : 73 µGy/h")
+        await pg.fill("#dist", "2"); await pg.locator("#dist").dispatch_event("input")
+        verifie("18,3" in await pg.inner_text("#debit"), "deux fois plus loin : quatre fois moins")
+        await pg.fill("#tps", "60"); await pg.locator("#tps").dispatch_event("input")
+        verifie("18,3" in await pg.inner_text("#dose"), "une heure à 18,3 µGy/h : 18,3 µGy")
+        await pg.goto(BASE + "#/carto/releve"); await pg.wait_for_timeout(200)
+        verifie(await pg.locator('[data-c="zonage"].cache').count() == 2, "le zonage n'apparaît qu'à la fin du relevé")
+        for _ in range(5):
+            await pg.click("#suiv")
+        verifie(await pg.locator('[data-c="zonage"].cache').count() == 0, "dernière étape : local classé et affiché")
+        await pg.goto(BASE + "#/carto/defi"); await pg.wait_for_timeout(200)
+        for pid, z in (("a","hors"),("b","verte"),("c","jaune"),("d","jaune"),("e","orange"),("f","rouge")):
+            await pg.click(f'.z-btn[data-p="{pid}"][data-z="{z}"]')
+        await pg.click("#verif")
+        verifie("6" in await pg.inner_text("#etat") and await pg.locator(".carte-zone.bon").count() == 6, "défi carto : six points bien classés")
+
+        print("Mesure")
+        await pg.goto(BASE + "#/mesure/geste"); await pg.wait_for_timeout(200)
+        verifie("démarrage" in await pg.text_content("#ecranTxt"), "l'écran de l'appareil suit l'étape")
+        await pg.click("#suiv")
+        verifie("c/s" in await pg.text_content("#ecranTxt"), "bruit de fond affiché en c/s")
+        await pg.goto(BASE + "#/mesure/sortie"); await pg.wait_for_timeout(200)
+        for _ in range(5):
+            await pg.click("#suiv")
+        verifie("3 000" in await pg.text_content("#texte"), "le portique C3 et son seuil terminent le parcours")
+        await pg.goto(BASE + "#/mesure/defi"); await pg.wait_for_timeout(200)
+        await pg.click(".option-btn >> nth=1")
+        verifie("Oui" in await pg.inner_text("#explication"), "défi mesure : réponse expliquée")
+
+        print("Décontamination")
+        await pg.goto(BASE + "#/decontamination/choix"); await pg.wait_for_timeout(200)
+        await pg.click('.option-btn[data-s="metal"]')
+        verifie("gel" in (await pg.inner_text("#reco")).lower(), "métal oxydé : gel aspirable proposé")
+        await pg.goto(BASE + "#/decontamination/personne"); await pg.wait_for_timeout(200)
+        verifie("médecin du travail" in await pg.inner_text("main"), "la contamination interne renvoie au médecin du travail")
 
         print("Thème mémorisé")
         await pg.goto(BASE + "#/accueil"); await pg.wait_for_timeout(200)
