@@ -1,7 +1,7 @@
 /* Intervention TIIN — navigation, thème, état réseau, mises à jour. */
 (function(){
 "use strict";
-const VERSION="0.3.1";
+const VERSION="0.4.0";
 const main=document.getElementById("main");
 let quitter=()=>{};
 
@@ -36,7 +36,7 @@ function infos(){
   return ()=>{};
 }
 
-const VUES={"sas/complet":m=>window.ITSasComplet.ouvrir(m),"sas/caisson":m=>window.ITSasCaisson.ouvrir(m),"sas/confinement":m=>window.ITSasConfinement.ouvrir(m),"sas/defi-erreurs":m=>window.ITSasDefi.ouvrir(m)};
+const VUES={"tenues/habillage":m=>window.ITTenuesGuides.habillage(m),"tenues/tev":m=>window.ITTenuesGuides.tev(m),"tenues/deshabillage":m=>window.ITTenuesGuides.deshabillage(m),"tenues/catalogue":m=>window.ITTenuesCatalogue.ouvrir(m),"tenues/defi-ordre":m=>window.ITTenuesDefis.ordre(m),"tenues/defi-choix":m=>window.ITTenuesDefis.choix(m),"sas/complet":m=>window.ITSasComplet.ouvrir(m),"sas/caisson":m=>window.ITSasCaisson.ouvrir(m),"sas/confinement":m=>window.ITSasConfinement.ouvrir(m),"sas/defi-erreurs":m=>window.ITSasDefi.ouvrir(m)};
 
 function route(){
   quitter();

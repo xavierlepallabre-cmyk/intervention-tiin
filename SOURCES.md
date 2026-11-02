@@ -49,9 +49,39 @@ Règle de l'application : **aucune valeur réglementaire, aucun seuil, aucun cod
 8. *BSS – Caisson filtrant pour sas radiologique*, fiche de synthèse documentaire fournie par l'enseignant (2 p.), citant la documentation Camfil « Caisson filtre ou caisson BSS » et des inventaires de déchets Andra. Synthèse non vérifiée directement sur le catalogue Camfil : utilisée seulement pour l'appellation.
 9. Baccalauréat professionnel Environnement nucléaire, épreuve E2 « Analyser et préparer un chantier en environnement nucléaire », session 2014, dossier ressources (caissons de filtration à sas Camfil, filtre DNF). https://bnseep.eduscol.education.fr/ressources/examens/sujets/14/400/3430200/E2/U2_SUJET_R.pdf
 
+## Rubrique Tenues et protections
+
+### Ce qui est affiché
+
+| Notion affichée | Source |
+|---|---|
+| Mode EVEREST : zone propre (contamination non fixée < 0,4 Bq/cm²), contaminée (0,4 à 40 Bq/cm²), très contaminée (> 40 Bq/cm²) ; tenue de chaque zone (bleu de travail, casque, lunettes, chaussures ; + tenue EVEREST, surchaussures ou surbottes, gants adaptés ; + surtenue EVEREST et surbottes) | EDF [10] § 6.3 |
+| Tenue de circulation des sites non EVEREST (chaussettes, tee-shirt, combinaison blanche, chaussures blanches de sécurité, calot, gants coton, casque) ; dernière ligne de défense contre la contamination ; dosimètres portés sur la poitrine | EDF [10] § 6.2.1 et photo associée |
+| Surtenue non tissée : usage unique, jamais à même la peau, protège de la contamination particulaire non fixée et des petites éclaboussures, pas des produits chimiques, de la flamme ou du métal en fusion ; méthode de retrait en trois gestes | EDF [10] § 6.2.2 |
+| Gants : gants étanches fins (type chirurgien) et/ou épais (type ménagère) contre la contamination, par-dessus les gants coton ; méthode de retrait en trois gestes | EDF [10] § 6.2.3, quiz chap. 6 (question 6) |
+| EPI filtrants : aérosols radioactifs, iodes, selon le filtre ; interdits en atmosphère directement dangereuse pour la vie (anoxie, CO₂, gaz, vapeur, explosive) | EDF [10] § 6.2.4 |
+| Heaume ventilé et TEV : surpression, usage unique, réseau d'air via UFS, cagoule recommandée, test sous air, surveillance visuelle permanente (heaume), assistant (TEV), thermorégulation (TEV), interdits sans air et en atmosphère non respirable, déconnexion de 30 s au plus, ARI plus approprié dans certains cas | EDF [10] § 6.2.5 |
+| Habillage et déshabillage du heaume et de la TEV (séquences complètes), fixateur obligatoire avant la bande, ouverture de secours, alarme UFS (évacuer sans délai mais sans précipitation), priorité au risque d'asphyxie | EDF [10] § 6.2.5 |
+| Risque alpha : TEV ou heaume ; travaux abrasifs → protections individuelles même si contamination alpha < 8 Bq/cm² ; pas de risque d'exposition externe | EDF [10] § 3.4 ; EDF [11] |
+| Aucune tenue ne protège de l'irradiation ; scier une tuyauterie contaminée → TEV ou tenue vinyle et heaume | EDF [10] quiz chap. 6 (questions 5 et 10) |
+| Normes EN 1073-1 (vêtements ventilés) et EN 1073-2 (non ventilés, particules) | INRS [12] |
+| Défis « ordre » et « quelle tenue ? » | Séquences et cas repris des lignes ci-dessus |
+
+### Volontairement non affiché
+
+- Les valeurs du mémento datent de 2014 et concernent les centrales EDF : l'application les présente comme celles du mémento et rappelle que les consignes du site priment.
+- Les débits, pressions et autonomies chiffrés des UFS et BFS ne sont pas affichés.
+
+### Références
+
+10. EDF, *Mémento de la radioprotection en exploitation*, édition 2014 (PDF du 29 avril 2014), chap. 3 « Risques radiologiques » et chap. 6 « Moyens de protections collectives et individuelles ». https://www.edf.fr/sites/groupe/files/Lot%203/FOURNISSEURS/DEVENIR%20FOURNISSEUR/PDF/memento-de-la-radioprotection-en-exploitation-.pdf
+11. EDF, *Comment se protéger des rayons alpha ?* (dossier « Risque alpha »), document d'information pour les intervenants en CNPE, juin 2014. https://www.edf.fr/sites/groupe/files/Lot%203/INTERVENIR%20CENTRALE/doc_risque_alpha.pdf
+12. INRS, *Les vêtements de protection : choix et utilisation*, ED 6546, décembre 2024. https://inrs.fr/dam/inrs/CataloguePapier/ED/TI-ED-6546.pdf
+
+Pour aller plus loin (formations, non utilisées pour le contenu) : INSTN, fiches 46C « Porter une tenue étanche ventilée MAR 95.3 ou PK17 » et 72B « Port du heaume ventilé et de la tenue étanche ventilée type Mururoa », catalogue 2026 Cherbourg.
+
 ## Rubriques à venir : sources disponibles
 
-- **Tenues et équipements de protection** : CEA [5] (tenue de zone → masque et combinaison → tenue ventilée selon le milieu ; habillage et déshabillage en sas) ; EDF [3] (tenue adaptée au risque de contamination en zone contaminée) ; INRS à compléter pour la protection respiratoire.
 - **Cartographie, zonage, balisage** : EDF [3] § 3 : zone surveillée bleue, zone contrôlée verte, jaune, orange, rouge, avec leurs limites réglementaires (dose intégrée) et les équivalents opérationnels en débit de dose, que le rapport distingue explicitement des exigences réglementaires ; zonage propreté/déchets (ZDC/K, ZppDN : NP, N1, N2, NC). Référence réglementaire citée : arrêté « zonage » du 15 mai 2006 modifié en 2020. CEA [4] [5] [6] : cartographie radiologique, frottis.
-- **Appareils de mesure** : EDF [3] (balises fixes et mobiles : iode, aérosols, gaz rares, gamma, neutrons ; portiques) ; CEA [5] (dosimètres personnels, contrôle avant sortie de zone).
+- **Appareils de mesure** : EDF [10] § 5.4 (contrôleur mains-pieds, portiques C1, C2, C3, contrôleur de petits objets, avec leurs seuils) ; EDF [3] (balises fixes et mobiles : iode, aérosols, gaz rares, gamma, neutrons ; portiques) ; CEA [5] (dosimètres personnels, contrôle avant sortie de zone).
 - **Décontamination** : CEA [4] (gels aspirables, gels de nappage, mousses, décapage, choix selon le matériau et le radionucléide, déchets produits) ; CEA [6].

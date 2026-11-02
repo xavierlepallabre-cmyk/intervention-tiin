@@ -101,14 +101,14 @@ function guide(main,cfg){
   const ET=cfg.etapes;let etape=0,lecture=!reduit,option=false;
   main.innerHTML=`
   <div class="page-head"><div>
-    <a class="retour" href="#/sas">← Sas et confinement</a>
+    <a class="retour" href="${(cfg.retour||{}).href||"#/sas"}">← ${(cfg.retour||{}).txt||"Sas et confinement"}</a>
     <p class="tag"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>${cfg.tag}</p>
     <h1>${cfg.titre}</h1>
     <p class="lead">${cfg.lead}</p>
-  </div>${segment(cfg.courant)}</div>
+  </div>${cfg.nav!==undefined?cfg.nav:segment(cfg.courant)}</div>
   <div class="guide">
     <figure class="feuille" id="feuille">
-      <div class="feuille-tete"><span>${cfg.vue||"Vue de dessus · schéma de principe"}</span><button type="button" class="btn btn-pause" id="pause"></button></div>
+      <div class="feuille-tete"><span>${cfg.vue||"Vue de dessus · schéma de principe"}</span>${cfg.statique?"":'<button type="button" class="btn btn-pause" id="pause"></button>'}</div>
       ${cfg.svg?cfg.svg(ET.map(e=>e.m)):dessin({marqueurs:ET.map(e=>e.m),id:cfg.id})}
       <figcaption>${cfg.legende}</figcaption>
     </figure>
@@ -126,11 +126,11 @@ function guide(main,cfg){
   </div>`;
   const $=s=>main.querySelector(s),feuille=$("#feuille"),pause=$("#pause");
   function maj(){
-    const e=ET[etape],vus=new Set();
-    ET.slice(0,etape+1).forEach(x=>x.voir.forEach(c=>vus.add(c)));
+    const e=ET[etape],vus=new Set(cfg.base||[]);
+    ET.slice(0,etape+1).forEach(x=>{(x.voir||[]).forEach(c=>vus.add(c));(x.retirer||[]).forEach(c=>vus.delete(c));});
     if(cfg.option&&option&&etape>=cfg.option.apres)cfg.option.couches.forEach(c=>vus.add(c));
     if(cfg.option&&!option)cfg.option.couches.forEach(c=>vus.delete(c));
-    main.querySelectorAll("[data-c]").forEach(g=>g.classList.toggle("cache",!vus.has(g.dataset.c)));
+    main.querySelectorAll("[data-c]").forEach(g=>{g.classList.toggle("cache",!vus.has(g.dataset.c));g.classList.toggle("focus",(e.focus||[]).includes(g.dataset.c));});
     main.querySelectorAll(".marq").forEach(g=>{const i=+g.dataset.m;g.classList.toggle("cache",i!==etape);g.classList.add("ici");});
     $("#num").textContent=`Étape ${etape+1} sur ${ET.length}`;
     $("#titre").textContent=e.titre;$("#texte").textContent=(option&&e.texteOption)||e.texte;$("#observe").textContent=(option&&e.observeOption)||e.observe;
@@ -140,12 +140,12 @@ function guide(main,cfg){
     $("#prec").disabled=etape===0;
     $("#suiv").textContent=etape===ET.length-1?cfg.suite.txt:"Étape suivante";
   }
-  function majLecture(){feuille.classList.toggle("en-pause",!lecture);pause.textContent=lecture?"Pause":"Lecture";
+  function majLecture(){if(!pause)return;feuille.classList.toggle("en-pause",!lecture);pause.textContent=lecture?"Pause":"Lecture";
     pause.setAttribute("aria-label",lecture?"Mettre l’animation en pause":"Lancer l’animation");}
   $("#prec").onclick=()=>{if(etape>0){etape--;maj();}};
   $("#suiv").onclick=()=>{if(etape<ET.length-1){etape++;maj();}else location.hash=cfg.suite.href;};
   main.querySelectorAll(".liste-etapes button").forEach(b=>b.onclick=()=>{etape=+b.dataset.i;maj();});
-  pause.onclick=()=>{lecture=!lecture;majLecture();};
+  if(pause)pause.onclick=()=>{lecture=!lecture;majLecture();};
   if(cfg.option)$("#option").onchange=ev=>{option=ev.target.checked;maj();};
   const clavier=ev=>{
     if(ev.target.closest("input,textarea,select,[role=button]"))return;
